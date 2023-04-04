@@ -1,0 +1,67 @@
+CS175 4-3
+
+	software engineering for ML
+
+	client
+
+		specific problem that needs to be solved
+		surmount language barrier between specialist and software engineers
+
+			Lauren sanders - blue marbel space institute
+			client may not know what they want, leads to creativity
+
+	discussion sessions
+
+		F  9 -  9:50
+		F 10 - 10:50
+
+		code review / pull request
+
+	Office hours directly after lecture, as of now in same class
+
+	Discord is used to communicate, not email
+
+	Github Classroom for project, form groups there
+
+	Miro board for scum
+
+		Pytorch / Pytorch lightning for DL model
+
+		CNNs and Transformers
+
+		Weights and Biases
+
+		package and deploy system
+
+		ML front end w/ Gradio or Streamlit
+
+		maybe:
+
+			model monitoring
+
+
+	Suggest Readings that pertain to what we're doing
+
+
+	Assignments:
+
+		small assignments to practice using the tools
+
+		simoultaneously we will have a design sprint (not agile)
+
+			google venture
+
+		pull requests on fridays w/ code review
+
+		Status report during midterm
+
+			baseline models should be identified and protoytped
+
+		Repository structure will be heavily graded
+
+			w/ Github Actions & .yaml files
+
+		End with client/community final showcase & demo
+
+			june 14th 4-6pm (hell no) 
+

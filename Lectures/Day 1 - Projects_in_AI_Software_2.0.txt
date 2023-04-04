@@ -1,0 +1,119 @@
+Projects in AI Software 2.0
+
+	Tesla dude says how do we think about software development from a ML perspective
+
+	When to use ML?
+
+		CS1D tier code is better, so use that if possible
+
+		87% of data science projects never make it into production
+
+			problems caused by lack of collaboration..?
+
+			unclear success criteria
+
+			too hard to implement when the project idea is stupid
+
+				KISS keep it simple stupid
+
+	building models have strange outcomes
+
+		boundry conditons?
+
+		did you think about all data dependecies / heirchies? 
+
+		feedback loops
+
+			model looks so hard, it finds something that doesn't exist
+
+		anti-patterns
+
+		configurational debt
+
+		instability
+
+			data drifting
+
+			changing trends
+
+	Need high impact use case, with low cost are prime examples for ML models
+
+		Costs?
+
+			Low: problem difficulty
+
+			Med: Accuracy requirement
+
+			High: Data availibility
+
+		Considerations
+
+			problem well defined?
+
+			good published ex on similar problems
+
+			computational requirements
+
+			can a human do it?
+
+
+			Are wrong predictions costly
+
+			How frequently does it need to be right to be useful?
+
+			ethics?
+
+				ML model gone rogue and becomes racist
+
+
+			hard to aquire data?
+
+			expensive data labeling?
+
+			how much data needed?
+
+			how stable is data?
+
+			data security?
+
+		SOftware 1.0 vs 2.0
+
+			2.0:
+
+				devlop with real-world data
+
+					data-gap
+
+						lack of existance of a dataset
+						no data exists for anyone over the age of 45 for medical data
+
+				Data janitors
+
+					clean and prep data to be used for ML
+
+					TILING!!!!
+
+	Team
+
+		is the team like robotics or not
+
+			if the team don't work, the program won't either
+
+-- Left off here -----------
+
+	planning
+
+		design sprint
+
+	data
+
+		do we have enough? to 
+
+	tooling and infrastructure
+
+		using tools availble to us
+
+	deployment
+
+		is it pretty looking
+
