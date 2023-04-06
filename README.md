@@ -5,7 +5,11 @@
 | Nadia Ahmed | MWF 12:00 - 12:50 pm & F 9:00 - 10:50 am | SSL 140 & SE2 1306 |
 
 ## Course Description
-Students in this project class will work in teams to develop artificial intelligence and machine learning algorithms with a particular focus on natural language and text analysis. Students in this class will work in small teams (2-3 students each) to develop artificial intellegence and machine learning algorithms and apply them to solve real-world problems. This quarter, we will work on **[Nadia decides to keep it a secret for now :/]**. Throughout the process, we will review and learn various machine learning algorithms including logistic regression, SVM, and deep neural nets. We will also review popular machine learning tools and packages, such as CNNs and Transformers, Weights and Biases, and pytorch, in conjuction with ML front end w/ Gradio or Streamlit. The programming language used in this class will be based on Python.
+Students in this project class will work in teams to develop artificial intelligence and machine learning algorithms with a particular focus on natural language and text analysis. Students in this class will work in small teams (2-3 students each) to develop artificial intellegence and machine learning algorithms and apply them to solve real-world problems. This quarter, we will work on **Austronauts Health**. 
+
+*Challenge:* Leveraging ML methods to model space biology data from the NASA Open Science Data Repository: how might we use NASA GeneLab data to better understand the complex effects of spaceflight on living systems across hierarchical biological levels?
+
+Throughout the process, we will review and learn various machine learning algorithms including logistic regression, SVM, and deep neural nets. We will also review popular machine learning tools and packages, such as CNNs and Transformers, Weights and Biases, and pytorch, in conjuction with ML front end w/ Gradio or Streamlit. The programming language used in this class will be based on Python.
 
 
 ## Side note
