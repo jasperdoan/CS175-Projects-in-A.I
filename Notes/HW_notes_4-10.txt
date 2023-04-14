@@ -1,227 +1,294 @@
---------------------------
-List two reasons to prefer the ReLU activation function over the sigmoid activation function.
---------------------------
-Here are two reasons to prefer the ReLU activation function over the sigmoid activation function:
+CS 175 HW 1
 
-Better performance in deep neural networks: The ReLU activation function is known to perform better than the sigmoid activation function in deep neural networks. This is because the ReLU function is less susceptible to the vanishing gradient problem, which occurs when the gradients become very small as they propagate through many layers of the network. In contrast, the sigmoid function has a derivative that ranges between 0 and 0.25, which can cause the gradients to vanish quickly, leading to slower training.
+                                                                                           
+Glossary 
 
-Computational efficiency: The ReLU activation function is computationally more efficient than the sigmoid activation function. This is because the ReLU function involves simple mathematical operations (max(0,x)), while the sigmoid function involves exponentials and division operations, which are more computationally expensive. In practice, this means that ReLU networks can be trained faster and can handle larger datasets.
 
+	Software 1.0
 
+		explicit rules and instructions
+		computer program follows this to solve a problem
+		program's behavior is deterministic and predictable.
+		program will only be as smart as the developer
 
---------------------------
-What is ReLU activation function and sigmoid activation function
---------------------------
-The ReLU (Rectified Linear Unit) and sigmoid activation functions are two commonly used activation functions in neural networks.
 
-The ReLU activation function is defined as:
+	Software 2.0
 
-f(x) = max(0, x)
+		ML
+		developers instead create software that learns to solve a problem on its own by analyzing patterns from data
+		rather than rules, developers provide training (data examples)
+		program will adjust internal parameters until it can make accurate prediction on data
 
-where x is the input to the activation function. This means that if the input is negative, the output is 0, and if the input is positive, the output is the same as the input. The ReLU function is widely used in neural networks because it is simple, computationally efficient, and does not suffer from the vanishing gradient problem.
+			highly data driven
+			programs behavior is not predicited
+			more time spent on collecting and preparing data
 
-The sigmoid activation function is defined as:
 
-f(x) = 1 / (1 + exp(-x))
+	activation function
 
-where x is the input to the activation function. This function produces a curve that is S-shaped and bounded between 0 and 1. The sigmoid function is often used in the output layer of binary classification models to produce a probability estimate of a given input belonging to a certain class. However, the sigmoid function can suffer from the vanishing gradient problem in deep neural networks, where the gradients become very small and can slow down or prevent learning.
+		applied to the output of a neuron in a neural network
 
+		 determines whether the neuron should be "activated" or "fired" based on the input it receives.
 
+		 	allows the network to learn complex, nonlinear relationships between the input and output data
 
---------------------------
-What is vanishing gradient problem
---------------------------
-The vanishing gradient problem is a phenomenon that can occur during the training of deep neural networks. It happens when the gradients, which are used to update the weights of the network during backpropagation, become very small as they propagate backwards through the layers of the network.
+		 		Without an activation function, the neural network would essentially be a linear model
 
-The problem arises due to the chain rule of calculus, which is used to compute the gradients of the loss function with respect to the weights of the network. In a deep neural network with many layers, the gradient is multiplied by the weight matrix at each layer. If the weight matrix has small values or if the activation functions used in the network have derivatives that are close to zero, then the gradient can become very small as it propagates backwards through the layers.
+		 		linear models can only model linear relationships between input features and the output variable, which can lead to underfitting of the data. 
 
-When the gradient becomes very small, the network may not learn effectively, since the updates to the weights will be too small to make a significant difference. In some cases, the gradient can become so small that the network effectively stops learning altogether.
+		 	restricts range of nuerons value
 
-The vanishing gradient problem can be especially pronounced in recurrent neural networks (RNNs) and long short-term memory (LSTM) networks, which have many layers and can have long-term dependencies between inputs and outputs. To mitigate the problem, researchers have developed various techniques such as weight initialization, batch normalization, and using activation functions that do not suffer from the vanishing gradient problem, such as the ReLU activation function.
+		 		ex) classification, where the output is a probability value between 0 and 1
 
 
 
---------------------------
-Explain this in simpler terms 
---------------------------
-During the training of a deep neural network, the gradients used to update the weights of the network can become very small as they propagate backwards through the layers. This can happen if the weight matrices have small values or if the activation functions used in the network have derivatives that are close to zero. When the gradient becomes very small, the network may not learn effectively, and in some cases, the network may stop learning altogether. This is known as the vanishing gradient problem. It can be especially problematic in networks with many layers or long-term dependencies between inputs and outputs. To mitigate the problem, researchers have developed various techniques such as weight initialization, batch normalization, and using activation functions that do not suffer from the vanishing gradient problem.
+	ReLU (Rectified Linear Unit) activation function
 
+		f(x) = max(0, x)
 
+			if input is negative, output is 0
+			if input is positive, output is input
 
---------------------------
-To date, the avatar reviewers have looked at 1,000,000 uploaded photos, and found 10,000 (1%) to be offensive. Assume that the team is 100% accurate.
+			simple, computationally efficient
+			does not suffer from the vanishing gradient problem.
 
-What are reasonable choices for splitting this data into training/validation/test sets?
 
-Choice 1: 80% to training, 10% to validation, 10% to test
-Choice 2: 50% to training, 25% to validation, 25% to test
-Choice 3: 20% to training, 20% to validation, 60% to test
-Choice 4: 98% to training, 1% to validation, 1% to test
-Choice 5: 20% to training, 40% to validation, 40% to test
-Choice 6: 50% to training, 49% to validation, 1% to test
+	sigmoid activation function
 
-Explain why?
+		f(x) = 1 / (1 + exp(-x))
 
---------------------------
-The choice of how to split the data into training, validation, and test sets depends on several factors, including the size of the dataset, the complexity of the model, and the availability of labeled data. Here are my recommendations for the given scenario:
+			curve is S-shaped and bounded between 0 and 1.
 
-In this scenario, we have 1,000,000 uploaded photos, and 10,000 (1%) are offensive. Assuming that the team is 100% accurate, we can use these numbers to estimate the minimum number of offensive photos we should expect in each of the training, validation, and test sets.
+			often used in "classification" problems
+			suffers heavily from vanishing gradient problem.
 
-For Choice 1: 80% to training, 10% to validation, 10% to test, we would expect to have approximately 8,000 offensive photos in the training set, 1,000 offensive photos in the validation set, and 1,000 offensive photos in the test set. This should provide enough data for the model to learn from, but may not be enough to accurately evaluate the performance of the model.
+				function has a derivative that ranges between 0 and 0.25, which can cause the gradients to vanish quickly, leading to slower training.
 
-For Choice 2: 50% to training, 25% to validation, 25% to test, we would expect to have approximately 5,000 offensive photos in the training set, 2,500 offensive photos in the validation set, and 2,500 offensive photos in the test set. This split provides more data for both training and evaluation, but the smaller training set may limit the model's ability to learn.
 
-For Choice 3: 20% to training, 20% to validation, 60% to test, we would expect to have approximately 2,000 offensive photos in the training set, 2,000 offensive photos in the validation set, and 6,000 offensive photos in the test set. This split may provide enough data for evaluation, but the small size of the training and validation sets may limit the model's ability to learn.
+	vanishing gradient problem
 
-For Choice 4: 98% to training, 1% to validation, 1% to test, we would expect to have approximately 9,800 offensive photos in the training set, 100 offensive photos in the validation set, and 100 offensive photos in the test set. This split provides a large amount of data for training, but the small size of the validation and test sets may limit the model's ability to generalize.
+		gradients -> used to update the weights of the network
 
-For Choice 5: 20% to training, 40% to validation, 40% to test, we would expect to have approximately 2,000 offensive photos in the training set, 4,000 offensive photos in the validation set, and 4,000 offensive photos in the test set. This split provides a larger amount of data for both validation and testing, but the smaller training set may limit the model's ability to learn.
+			can become very small as they propagate backwards through the layers of the network
 
-For Choice 6: 50% to training, 49% to validation, 1% to test, we would expect to have approximately 5,000 offensive photos in the training set, 4,900 offensive photos in the validation set, and 100 offensive photos in the test set. This split provides a large amount of data for both training and validation, but the small size of the test set may limit the model's ability to generalize.
+			with many layers, gradients can become very small (close to 0) 
+			with small gradients, the program will train/learn extremely slow
 
-Overall, I would recommend either Choice 2 or Choice 5, as they provide a reasonable balance between the amount of data available for training, validation, and testing. However, the final choice will depend on additional factors, such as the specific modeling approach and the availability of additional labeled data.
+				as updates to the model will make little to no change 
+				the gradient can become so small that the network effectively stops learning altogether.
 
+				This can happen if the weight matrices have small values or if the activation functions used in the network have derivatives that are close to zero.
 
+				especially problematic in networks with many layers or long-term dependencies between inputs and outputs.
 
---------------------------
-Q.3: Identifying Offensive Photos Case Study
 
-You are working at a company that runs a popular discussion forum, where users can upload an avatar photo. It is important to the company that the avatar photos are not offensive to other users, so a team of avatar reviewers looks through all uploaded photos and removes offensive ones.
+	bias
 
-It is very important to the company that every single offensive photo is removed, but the cost of running the avatar team is getting very expensive. You are tasked with developing a computer vision system to help the team identify offensive photos. The business goal is to keep the size of the team constant while scaling the forum from its current 1M users to 100M users in the next few years.
+		the level of systematic error or inaccuracy in a model's predictions.
 
-What metric or metrics will you work to optimize as you work on the project from the confusion matrix? 
+		low bias
 
-For this project, predicting that a photo is offensive is called a “positive” prediction. If the photo is actually offensive, that is called a “positive” true condition.
---------------------------
-When developing a computer vision system to help identify offensive photos, it is important to optimize metrics that accurately reflect the system's performance in identifying offensive photos. Based on the provided scenario, the following metrics would be important to optimize:
+			model's predictions are generally accurate and close to the true values
 
-Precision: Precision measures the proportion of predicted offensive photos that are actually offensive. It is important to optimize precision because the company wants to ensure that every single offensive photo is removed. In other words, the company cannot afford to have any false positives, or photos that are incorrectly identified as offensive and removed. Therefore, optimizing precision will ensure that the team is not wasting resources removing non-offensive photos.
+		high bias
 
-Recall: Recall measures the proportion of actual offensive photos that are correctly identified as offensive by the model. Optimizing recall is important because the company wants to ensure that every single offensive photo is removed. In other words, the company cannot afford to have any false negatives, or offensive photos that are incorrectly identified as non-offensive and not removed. Therefore, optimizing recall will ensure that the model is effectively identifying offensive photos.
+			model's predictions are consistently off target and have significant errors
 
-By optimizing precision and recall, the computer vision system can accurately identify offensive photos while minimizing the number of false positives and false negatives. This will help the company achieve its business goal of keeping the size of the team constant while scaling the forum from 1M users to 100M users in the next few years.
 
+	variance
 
+		the level of random error or inconsistency in a model's predictions.
 
---------------------------
-What do you mean by recall?
---------------------------
-In machine learning and statistics, recall is a performance metric that measures the proportion of true positive instances that were correctly identified by a model out of all actual positive instances.
+		low variance
 
-In simpler terms, recall measures the ability of a model to correctly identify all positive instances. It is also called sensitivity or true positive rate. A high recall indicates that the model is able to identify most of the positive instances and is useful when the goal is to identify all positive instances, even if that means accepting some false positives (incorrectly classified negative instances).
+			model's predictions are consistent and do not vary much between different training runs
 
+		high variance
 
+			model's predictions are highly sensitive to the specific training data used and can vary significantly between different training runs
 
---------------------------
-What are reasonable choices for assigning examples that are labeled as offensive (“positive”) to training/validation/testing?
 
-Choice 1: Evenly across the validation and test datasets
-Choice 2: According to the overall distribution
-Choice 3: All to the test dataset
-Choice 4: Evenly across training/validation/test, no matter what the overall distribution is
---------------------------
-When assigning examples that are labeled as offensive ("positive") to training, validation, and testing datasets, it is important to consider the balance between the positive and negative examples in each dataset. The following are reasonable choices for assigning such examples:
+	fitness
 
-Choice 2: According to the overall distribution
+		ability for a model to capture patterns in the data
 
-This is a reasonable choice as it ensures that the positive examples are distributed proportionally across all datasets based on their occurrence in the overall dataset. For example, if 1% of the overall dataset is labeled as positive, then approximately 1% of the training, validation, and testing datasets should also be labeled as positive. This choice will ensure that the model is trained, validated, and tested on a representative sample of the positive and negative examples in the dataset.
+		underfit
 
-Choice 1: Evenly across the validation and test datasets
+			model is too simple and does not capture the patterns in the data well
 
-This choice can be combined with Choice 2, where the positive examples are first assigned to training based on their overall distribution, and then evenly split across the validation and test datasets. This can be useful if there is a concern that the validation and test datasets may not have enough positive examples to effectively evaluate the model's performance.
+			it performs poorly both on the training set and the test set. the model is unable to learn the patterns in the training data and therefore cannot generalize well to new data.
 
-Choice 4: Evenly across training/validation/test, no matter what the overall distribution is
+		overfit
 
-This choice is not ideal as it does not take into account the actual distribution of positive and negative examples in the dataset. As a result, it may lead to an imbalance in the number of positive examples in each dataset, which can impact the model's performance.
+			model that is too complex and captures noise and random fluctuations in the training data
 
+			performs very well on the training set, but poorly on the test set.  the model has memorized the training data and is not able to generalize well to new data.
 
 
---------------------------
-When a trained model is said to be “high bias”, is it underfit or overfit on the training set?
---------------------------
-When a trained model is said to be "high bias", it means that the model has poor performance on both the training set and the validation/test set, indicating that the model is underfitting the data.
+	precision
 
-Underfitting occurs when the model is too simple to capture the underlying patterns in the data, resulting in poor performance on both the training and validation/test sets. This can be caused by using a model that is not complex enough to capture the underlying patterns in the data, or not training the model for long enough to fully learn the patterns in the data.
+		the proportion correctly identified positives among all positive predictions made by the model.
 
-On the other hand, when a model is said to be "high variance", it means that the model has good performance on the training set but poor performance on the validation/test set, indicating that the model is overfitting the data. Overfitting occurs when the model is too complex and is memorizing the training data, rather than generalizing to new data.
+			ex) spam emails
 
+				Predicts 30 emails as spam, of which 10 are actually spam (true positives) and 20 are not spam (false positives).
 
+				Precision = 10 / (10 + 20) = 0.33
 
---------------------------
-Low bias vs High bias
+		high precision
 
-Low variance vs High variance
---------------------------
-Low bias and high bias refer to the level of systematic error or inaccuracy in a model's predictions. Low bias indicates that the model's predictions are generally accurate and close to the true values, whereas high bias indicates that the model's predictions are consistently off target and have significant errors.
+			when the model predicts a positive outcome, it is very likely to be correct.
 
-Low variance and high variance, on the other hand, refer to the level of random error or inconsistency in a model's predictions. Low variance indicates that the model's predictions are consistent and do not vary much between different training runs, whereas high variance indicates that the model's predictions are highly sensitive to the specific training data used and can vary significantly between different training runs.
+				less legitimate emails are marked as spam
 
-In general, a good machine learning model should aim to have low bias and low variance, which means that it is both accurate and consistent in its predictions. However, there is often a trade-off between bias and variance, where decreasing one may increase the other. The goal is to find a balance between bias and variance that results in the best possible model performance on new, unseen data.
+		low precision
 
+			when the model predicts a positive outcome, it is less likely to be correct. 
 
+				more legitimate emails are marked as spam
 
---------------------------
-What is the bias-variance tradeoff?
---------------------------
-The bias-variance tradeoff is a fundamental concept in machine learning that refers to the tradeoff between two sources of error in a model's predictions: bias and variance.
 
-Bias refers to the systematic error or inaccuracy in a model's predictions. A model with high bias is not able to capture the true underlying patterns in the data, resulting in consistently inaccurate predictions. In other words, the model is too simple and unable to fit the complexity of the data.
+	recall 	
 
-Variance, on the other hand, refers to the random error or inconsistency in a model's predictions. A model with high variance is very sensitive to the specific training data used, resulting in predictions that vary widely between different training runs. In other words, the model is too complex and is fitting the noise in the data rather than the underlying patterns.
+		performance metric = ratio of correct positive guesses to all positive instances
 
-The goal of machine learning is to minimize both bias and variance in a model's predictions. However, there is often a tradeoff between the two: increasing the complexity of a model can reduce bias but increase variance, while simplifying a model can reduce variance but increase bias.
+			ex) 78 offensive photos identified. 100 offensive photos were in the dataset. recall = 78/100
 
-To find the optimal balance between bias and variance, it is important to evaluate the performance of a model on a separate validation or test set, and choose the model with the lowest overall error. This process is known as model selection or hyperparameter tuning.
+			recall measures the ability of a model to correctly identify all positive instances.
+			
+		high recall
 
+			Indicates that the model is able to identify most of the positive instances
+			
+			useful when the goal is to identify all positive instances, even if that means accepting some false positives 
 
+				false positives = incorrectly classified negative instances
 
---------------------------
-You came across a public dataset that another company put together for the same task. The dataset consists of 500,000 photos, with 5,000 (1%) labeled as offensive.
+		low recall 
 
-The data distribution in this dataset is similar but not the same: their forum is for anime fans, whereas yours is for software developers.
+			indicates that the model is missing a lot of positive cases
 
-Regardless, you want to add this data to your company's proprietary dataset.
 
-Select the best option for doing this:
+	Binary Outcomes
 
+		True Positive (TP)
 
-Choice 1: Distribute the new photos into training/validation/testing sets following the same distribution as you selected in the previous question
+			true positive is a case where the model correctly identifies a positive instance. F
 
-Choice 2: Add the new photos to the test set only
+				The model correctly identifies a spam email as spam
 
-Choice 3: Add the new photos to the validation set only
+		False Positive (FP)
 
-Choice 4: Add the new photos to the training set only
---------------------------
-The best option for incorporating the new dataset into the existing one depends on the specific characteristics of the data and the problem being solved. However, in general, adding more data to the training set can help improve the performance of a machine learning model.
+			false positive is a case where the model incorrectly identifies a negative instance as positive. 
 
-Given that the data distribution in the new dataset is similar to the existing one, a reasonable approach would be to add the new photos to the training set. This would increase the diversity of the training data and potentially improve the model's ability to generalize to new data.
+				The model incorrectly identifies a legitimate email as spam.
 
-However, it is still important to evaluate the performance of the model on a separate validation or test set that is representative of the data distribution in the real world. Therefore, it may also be necessary to adjust the distribution of examples in the training/validation/testing sets to ensure that the evaluation accurately reflects the performance of the model in production.
+		True Negative (TN)
 
+			true negative is a case where the model correctly identifies a negative instance.
 
+				The model correctly identifies a legitimate email as legitmate
 
---------------------------
-In your own words, explain how "Software 2.0" (Andrej Karpathy's term), or training ML models, is different from Software 1.0, or traditional software engineering.
---------------------------
-In traditional software engineering, developers write explicit rules and instructions that a computer program follows to solve a problem. These rules are based on the developer's knowledge and understanding of the problem domain, and the program's behavior is deterministic and predictable.
+		False Negative (FN)
 
-In contrast, in "Software 2.0" or training ML models, developers create algorithms that can learn to solve a problem on their own by analyzing and extracting patterns from data. Instead of explicitly programming rules, developers provide a set of training examples and a set of desired outcomes, and the algorithm learns to map inputs to outputs by iteratively adjusting its internal parameters until it can make accurate predictions on new data.
+			A false negative is a case where the model incorrectly identifies a positive instance as negative
 
-This process is highly data-driven and involves selecting and preprocessing data, designing and training models, and evaluating and fine-tuning the model's performance. The model's behavior is not explicitly programmed but rather emerges from the patterns it learns from the data.
+				The model incorrectly identifies a spam email as legitimate.
 
-In summary, Software 2.0 represents a shift in software engineering from explicitly programming rules to designing algorithms that can learn from data to solve a problem. This approach is highly scalable and can often outperform traditional software engineering in complex problem domains where the rules are difficult to define explicitly.
 
+	multi-layer perceptron (MLP)
 
+		type of artificial neural network
 
---------------------------
-What is the purpose of the activation function in a multi-layer perceptron?
---------------------------
-The activation function in a multi-layer perceptron (MLP) serves two main purposes:
+			commonly used in machine learning for both classification and regression
 
-Introducing non-linearity: The activation function introduces non-linearity into the output of each neuron in the MLP. Without the activation function, the output of the MLP would be a linear combination of the inputs, and the MLP would behave like a linear regression model, which is limited in its ability to model complex relationships between the inputs and outputs.
+		typically consists of an input layer, one or more hidden layers, and an output layer. 
 
-Enabling the MLP to learn complex patterns: The activation function enables the MLP to learn complex patterns in the data by mapping the input signals to output signals through the hidden layers of the network. By applying a non-linear function to the output of each neuron, the MLP can learn complex decision boundaries and capture complex relationships between the inputs and outputs.
+			The use of multiple hidden layers in an MLP allows it to learn complex and nonlinear relationships in the data
 
-Different types of activation functions can be used in MLPs, including the popular ReLU (Rectified Linear Unit) and sigmoid functions. The choice of activation function can have a significant impact on the performance of the MLP, and it is an important design choice when building neural network models.
+			MLP can capture hierarchical representations of the input data, with each layer learning more abstract and complex features than the previous layer.
+
+
+
+Questions
+
+	Q1.1 Bias vs Variance
+
+		When a trained model is said to be “high bias”, is it underfit or overfit on the training set?
+
+			[ ] overfit
+
+			[x] underfit
+
+
+	Q1.2
+
+		Explain the concept of bias-variance tradeoff. Does it apply to deep neural networks (explain why or why not)?
+
+			Typically, ML models would like to achieve low bias and low variance. However, when models try to decrease bias, there will be an increase in variance, and vice-versa.
+
+			This applies to deep neural networks. Because these models deal with many inputs and have complex relations among data, models are especially suseptable to overfitting. overfitting is extremely low bias, but extremely high variance. So, caution must be taken to increase bias and lower variance.
+
+
+	Q2 Software 2.0
+
+		In your own words, explain how "Software 2.0" (Andrej Karpathy's term we mentioned in lecture), or training ML models, is different from Software 1.0, or traditional software engineering.
+
+			Software 2.0 refers to a new approach to software development that relies on machine learning algorithms to learn from data and make decisions. It relies on training data to learn patterns and relationships that can be used to make predictions or decisions.
+
+			Software 1.0 refers to the traditional approach to software development, where a human programmer writes code to implement a set of predefined rules and logic. These rules and logic are used to make predictions or decisions.
+
+	Q3 Identifying Offensive Photos Case Study
+
+		Q3.1 Identifying Offensive Photos Case Study
+
+			What metric or metrics will you work to optimize as you work on the project?
+
+				I would want to have a recall proportion be as close to 1.0 as possible. This is because the client states that every single offensive photo needs to be removed. We would not want any false negatives. 
+
+
+		Q3.2 Dataset Split
+
+			What are reasonable choices for splitting this data into training/validation/test sets?
+
+				[ ] 20% to training, 20% to validation, 60% to test
+				[ ] 98% to training, 1%  to validation, 1%  to test
+				[x] 50% to training, 25% to validation, 25% to test
+				[ ] 50% to training, 49% to validation, 1%  to test
+				[ ] 20% to training, 40% to validation, 40% to test
+				[x] 80% to training, 10% to validation, 10% to test
+
+		Q3.3 Dataset Split Part 2
+
+			What are reasonable choices for assigning examples that are labeled as offensive (“positive”) to training/validation/testing?
+
+				[ ] All to the test dataset
+				[x] According to the overall distribution
+				[ ] Evenly across the validation and test datasets
+				[ ] Evenly across training/validation/test, no matter what the overall distribution is
+
+		Q3.4
+
+			You came across a public dataset that another company put together for the same task. The data distribution in this dataset is similar but not the same: their forum is for anime fans, whereas yours is for software developers. Regardless, you want to add this data to your company's proprietary dataset.
+
+			Select the best option for doing this:
+
+				[ ] Add the new photos to the validation set only
+				[ ] Add the new photos to the test set only
+				[x] Add the new photos to the training set only
+				[ ] Distribute the new photos into training/validation/testing sets following the same distribution as you selected in the previous question
+
+
+	Q4
+
+		What is the purpose of the activation function in a multi-layer perceptron?
+
+			The use of multiple hidden layers in an MLP allows it to learn complex and nonlinear relationships in the data. However, it cannot learn non-linear patterns without a non-linear activation function. So, the MLP cannot be used to it's fullest potential.
+
+	Q5 ReLU
+	
+		List two reasons to prefer the ReLU activation function over the sigmoid activation function.
+
+			We prefer the ReLU activation fucntion because it is able to train faster than the sigmoid activation function. The sigmoid activation function has a derivative between 0 and 0.25 for all x, which would obviously cause slow training.
+
+			Another reason we prefer ReLU is because max(0,z) is a simple operation for people to understand as well as to execute with code. it is also less likely to overflow compared to the sigmoid, which involves an exponential calculation.
