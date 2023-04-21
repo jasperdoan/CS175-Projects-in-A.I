@@ -57,3 +57,15 @@ print(exp)
 part = table[table['particle_type'] == 'Fe']
 print(part)
 ```
+
+
+### To download the dataset
+
+- Download and install AWS CLI from the link below
+https://aws.amazon.com/cli/
+
+- Check to see if it has been installed successfully
+`aws --version`
+
+- Then download the data using the command like below (copying from aws s3-bucket to your local folder)
+`aws s3 cp  s3://nasa-bps-training-data/Microscopy ./DataFolder --no-sign-request --recursive`
